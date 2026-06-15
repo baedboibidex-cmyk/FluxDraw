@@ -19,7 +19,7 @@ export default function Home() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [history, setHistory] = useState<number[]>([]);
 
-  const gameLoopRef = useRef<NodeJS.Timeout>();
+  const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
 
   const playSound = (type: "spin" | "win" | "lose" | "cashout") => {
     if (!soundEnabled) return;
@@ -99,7 +99,7 @@ export default function Home() {
 
   // 3D Animated Sphere Component
   function AnimatedSphere() {
-    const meshRef = useRef<any>();
+    const meshRef = useRef<any>(null);
     
     useEffect(() => {
       if (!meshRef.current) return;
